@@ -52,7 +52,7 @@ app.get('/test', (req,res) => {
 });
 
 app.get('/test_new', (req,res) => {
-    res.send("Test API is working....!");
+    res.send("Testnew API is working....!");
 });
 
 // app.get('/test'
