@@ -5,12 +5,20 @@ const express = require('express');
 const dotenv= require('dotenv');
 const mongoose = require('mongoose');
 const connectDB = require('./database/database');
-
+const cors = require('cors')
 // 2. Creating an express app
 const app = express();
 
 //Json Config
 app.use(express.json())
+
+//CORS Config
+const corsOptions = {
+    origin : true,
+    credentials: true,
+    optionSuccessStatus: 200
+};
+app.use(cors(corsOptions))
 
 // configuration dotenv
 dotenv.config();
@@ -40,6 +48,10 @@ const PORT = process.env.PORT  // 8000;
 // });
 // function(request, response) should be in controller
 app.get('/test', (req,res) => {
+    res.send("Test API is working....!");
+});
+
+app.get('/test_new', (req,res) => {
     res.send("Test API is working....!");
 });
 
