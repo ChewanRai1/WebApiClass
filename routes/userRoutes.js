@@ -6,5 +6,8 @@ router.post('/create',userControllers.createUser)
 
 // controllers -routes- (Index.js)
 
+// login user api
+router.post('/login', userControllers.loginUser)
+
 //exporting
 module.exports = router;

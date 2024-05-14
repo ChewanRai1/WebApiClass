@@ -67,13 +67,20 @@ const createUser = async(req,res) => {
     }
     
 }
-//2. Login
+//2. Login user function
+const loginUser = async(req,res) => {
+    res.send("Login user API is working")
+}
+
 //3. Update profile
 //4. Change Password
+
+
 
 //exporting 
 // module.exports = createUser  // only for create user
 
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }
