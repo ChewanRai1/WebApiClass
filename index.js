@@ -6,11 +6,16 @@ const dotenv= require('dotenv');
 const mongoose = require('mongoose');
 const connectDB = require('./database/database');
 const cors = require('cors')
+const multipart = require('connect-multiparty')
 // 2. Creating an express app
 const app = express();
 
 //Json Config
 app.use(express.json())
+
+//Accepting form data (json,image,video, audio etc)
+app.use(multipart())
+
 
 //CORS Config
 const corsOptions = {
