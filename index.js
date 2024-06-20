@@ -95,3 +95,6 @@ app.listen(PORT, () => {
 
 //http://localhost:9000/api/product/create
 //Response : Product APPI is wrokinh
+
+//exporting for testing
+module.exports = app;

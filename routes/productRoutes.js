@@ -9,7 +9,8 @@ router.post("/create", productControllers.createProduct);
 
 //fetch all
 //http://localhost:8000/api/product/get_all_products
-router.get("/get_all_products", authGuard, productControllers.getAllProducts);
+// router.get("/get_all_products", authGuard, productControllers.getAllProducts);
+router.get('/get_all_products', productControllers.getAllProducts)
 
 //fetch single product
 // if POST, body(data)
