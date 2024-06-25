@@ -4,6 +4,10 @@ const request = require("supertest");
 //server main file(index.js)
 const app = require("../index");
 
+//testing token
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdiNmFkMDY0ZGYyNDY3MzZjNTQxZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MTkyMDM0NzB9.cxuget_5Rg-Pz3WEaN7Z9D817DdXi9UaY5YPnoVunNI";
+
 //Making test collection
 //describe is the collection of test cases
 // (It) is a function that is used to define a test case
@@ -21,7 +25,9 @@ describe("API Testing", () => {
 
   // get all products
   it("GET/api/product/get_all_products | Fetch all products", async () => {
-    const response = await request(app).get("/api/product/get_all_products");
+    const response = (
+      await request(app).get("/api/product/get_all_products")
+    ).set("authorization", `Bearer ${token}`);
     expect(response.statusCode).toBe(201);
     expect(response.body).toBeDefined();
     expect(response.body.message).toEqual("Product fetched successfully!");
@@ -46,6 +52,26 @@ describe("API Testing", () => {
         .toEqual("User Created successfully");
     }
   });
+  // it("POST/api/user/login | Login User", async () => {
+  //   const response = await request(app)
+  //     .post("/api/user/login")
+  //     .send({
+  //       email: "crai@gmail.com",
+  //       password: "123qwe",
+  //     });
+
+  //   // Check if the response status code is 200
+  //   expect(response.statusCode).toBe(200);
+
+  //   // Check if the response body contains the user data
+  //   expect(response.body).toBeDefined();
+  //   expect(response.body.success).toBe(true);
+  //   expect(response.body.token).toBeDefined();
+  //   expect(response.body.user).toBeDefined();
+  //   expect(response.body.user.fName).toEqual("Chewan");
+  //   expect(response.body.user.lName).toEqual("Rai");
+  //   expect(response.body.user.email).toEqual("crai@gmail.com");
+  // });
 });
 
 //Task
