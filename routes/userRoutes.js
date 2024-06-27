@@ -12,5 +12,8 @@ router.post("/login", userControllers.loginUser);
 // forgot password api
 router.post("/forgot_password", userControllers.forgotPassword);
 
+//verify
+router.post("/verify_otp", userControllers.verifyOtpAndSetPassword);
+
 //exporting
 module.exports = router;
